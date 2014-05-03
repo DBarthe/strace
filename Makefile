@@ -1,4 +1,7 @@
 
+DEBUG ?= 1
+m32 ?= 0
+
 CC ?= gcc
 
 INCPATH = ./include
@@ -21,6 +24,10 @@ ifeq ($(DEBUG), 1)
 CFLAGS += $(DBGFLAGS)
 else
 CFLAGS += $(NDBGFLAGS) $(OFLAGS)
+endif
+
+ifeq ($(m32), 1)
+CFLAGS += -m32
 endif
 
 all: $(TARGET)
