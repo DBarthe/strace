@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:19:53 2014 Barthelemy Delemotte
-** Last update Mon May  5 20:04:10 2014 Barthelemy Delemotte
+** Last update Mon May  5 21:11:14 2014 Barthelemy Delemotte
 */
 
 #include <stdlib.h>
@@ -16,14 +16,21 @@
 #include "utils.h"
 
 #include "strace.h"
+#include "options.h"
 
-int		main(void)
+int		main(int ac, char **av)
 {
+  t_options	options;
   t_tracer	tracer;
   bool		success;
 
-  strace_init(&tracer);
-  success = strace_loop(&tracer);
-  strace_quit(&tracer);
+  success = options_parse(&options, ac, av);
+  if (success)
+    {
+      success = strace_init(&tracer, &options);
+      if (success)
+	success = strace_loop(&tracer);
+      strace_quit(&tracer);
+    }
   return (success ? EXIT_SUCCESS : EXIT_FAILURE);
 }

@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Mon May  5 19:30:09 2014 Barthelemy Delemotte
+** Last update Mon May  5 21:11:44 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
@@ -17,6 +17,7 @@
 
 # include "defines.h"
 # include "proclist.h"
+# include "options.h"
 
 typedef struct
 {
@@ -26,7 +27,7 @@ typedef struct
 void		tracer_ctor(t_tracer *self);
 void		tracer_dtor(t_tracer *self);
 
-bool		strace_init(t_tracer *tracer);
+bool		strace_init(t_tracer *tracer, t_options *opts);
 bool		strace_loop(t_tracer *tracer);
 void		strace_quit(t_tracer *tracer);
 
