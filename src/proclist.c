@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:31:00 2014 Barthelemy Delemotte
-** Last update Mon May  5 19:44:23 2014 Barthelemy Delemotte
+** Last update Mon May  5 22:53:57 2014 Barthelemy Delemotte
 */
 
 #include <stdlib.h>
@@ -33,7 +33,7 @@ void		proclist_dtor(t_proclist *self)
     }
 }
 
-t_proclink	*procslist_get(t_proclist *self, int pid)
+t_proclink	*proclist_get(t_proclist *self, int pid)
 {
   t_proclink	*link;
 

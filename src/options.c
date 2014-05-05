@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 20:13:55 2014 Barthelemy Delemotte
-** Last update Mon May  5 21:10:54 2014 Barthelemy Delemotte
+** Last update Mon May  5 21:51:13 2014 Barthelemy Delemotte
 */
 
 #include <unistd.h>
@@ -35,7 +35,7 @@ bool		options_parse(t_options *self, int ac, char **av)
   int		opt;
 
   self->type = PROG_NAME;
-  while ((opt = getopt(ac, av, "p:")))
+  while ((opt = getopt(ac, av, "p:")) != -1)
     {
       if (opt == 'p')
 	{

@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 18:56:33 2014 Barthelemy Delemotte
-** Last update Mon May  5 20:10:10 2014 Barthelemy Delemotte
+** Last update Mon May  5 22:53:44 2014 Barthelemy Delemotte
 */
 
 #ifndef PROCLIST_H_
@@ -34,7 +34,7 @@ typedef struct
 
 void		proclist_ctor(t_proclist *self);
 void		proclist_dtor(t_proclist *self);
-t_proclink	*procslist_get(t_proclist *self, int pid);
+t_proclink	*proclist_get(t_proclist *self, int pid);
 void		proclist_rm(t_proclist *self, t_proclink *link);
 t_proclink	*proclist_new(t_proclist *self);
 

@@ -5,14 +5,14 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Mon May  5 21:11:44 2014 Barthelemy Delemotte
+** Last update Mon May  5 22:52:16 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
 # define STRACE_H_
 
 /*
-** The main tracer structure and algorithm
+** The main tracer structure and functions
 */
 
 # include "defines.h"
@@ -22,13 +22,43 @@
 typedef struct
 {
   t_proclist	tracees;
+  bool		quit;
+  struct
+  {
+    int		pid;
+    int		status;
+    t_proclink	*proclink;
+    t_proc	*proc;
+  }		current;
 }		t_tracer;
 
+/*
+** t_tracer "methods" :
+**
+** -> tracer_set_proc:	set the current working process,
+**			if pid == 0, a new entry is added to the proclist,
+**			if the pid does not exist in the list, proc and proclink
+**			are set to zero but not pid.
+**
+** -> tracer_clean:	cleanup current working variables
+*/
 void		tracer_ctor(t_tracer *self);
 void		tracer_dtor(t_tracer *self);
+t_proc		*tracer_set_proc(t_tracer *self, int pid);
+void		tracer_clean(t_tracer *self);
 
+/*
+** strace main functions :
+*/
 bool		strace_init(t_tracer *tracer, t_options *opts);
 bool		strace_loop(t_tracer *tracer);
 void		strace_quit(t_tracer *tracer);
+
+/*
+** functions used by tracer :
+*/
+bool		exec_and_trace_program(t_tracer *tracer, t_options *opts);
+bool		attach_process(t_tracer *tracer, t_options *opts);
+bool		wait_for_tracee(t_tracer *tracer);
 
 #endif /* !STRACE_H_ */
