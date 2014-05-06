@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Mon May  5 22:52:16 2014 Barthelemy Delemotte
+** Last update Tue May  6 12:31:19 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
@@ -30,6 +30,10 @@ typedef struct
     t_proclink	*proclink;
     t_proc	*proc;
   }		current;
+  struct
+  {
+    int		pid_in_syscall;
+  }		display;
 }		t_tracer;
 
 /*
@@ -60,5 +64,27 @@ void		strace_quit(t_tracer *tracer);
 bool		exec_and_trace_program(t_tracer *tracer, t_options *opts);
 bool		attach_process(t_tracer *tracer, t_options *opts);
 bool		wait_for_tracee(t_tracer *tracer);
+
+bool		is_exited(int status);
+bool		is_signaled(int status);
+bool		is_ptrace_stopped(int status);
+
+void		tracee_exited(t_tracer *tracer);
+void		tracee_has_been_signaled(t_tracer *tracer);
+void		tracee_is_ptrace_stopped(t_tracer *tracer);
+void		tracee_is_not_stopped(t_tracer *tracee);
+
+/*
+** print utils :
+*/
+void		tracer_print_pid(t_tracer *tracer);
+void		tracer_print(t_tracer *tracer, const char *fmt, ...);
+void		tracer_print_raw(t_tracer *tracer, const char *fmt, ...);
+void		tracer_flush_output(t_tracer *tracer);
+
+void		sc_print_check(t_tracer *tracer);
+void		sc_print_begin(t_tracer *tracer);
+void		sc_print_continue(t_tracer *tracer, const char *signame);
+void		sc_print_end(t_tracer *tracer);
 
 #endif /* !STRACE_H_ */

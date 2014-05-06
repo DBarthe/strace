@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:28:13 2014 Barthelemy Delemotte
-** Last update Mon May  5 22:54:52 2014 Barthelemy Delemotte
+** Last update Tue May  6 11:48:11 2014 Barthelemy Delemotte
 */
 
 #include <string.h>
@@ -14,6 +14,7 @@
 
 void		tracer_ctor(t_tracer *self)
 {
+  memset(self, 0, sizeof(t_tracer));
   proclist_ctor(&self->tracees);
   tracer_clean(self);
 }
