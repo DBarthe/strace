@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:02:57 2014 Barthelemy Delemotte
-** Last update Mon May  5 19:47:47 2014 Barthelemy Delemotte
+** Last update Tue May 13 12:04:15 2014 Barthelemy Delemotte
 */
 
 #ifndef DEFINES_H_
@@ -19,7 +19,7 @@
 ** define architectures
 */
 # if __x86_64__
-#  define X84_64
+#  define X86_64
 # elif __i386__
 #  define I386
 # else
@@ -38,6 +38,9 @@
 #  define IFDEBUG(inst)
 #  define IFNDEBUG(inst) inst
 # endif /* DEBUG */
+
+# define DEFAULT_PERSONALITY	0
+# define SECOND_PERSONALITY	1
 
 /*
 ** for unit tests

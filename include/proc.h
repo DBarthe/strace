@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 18:55:38 2014 Barthelemy Delemotte
-** Last update Mon May  5 22:14:26 2014 Barthelemy Delemotte
+** Last update Mon May 12 18:10:13 2014 Barthelemy Delemotte
 */
 
 #ifndef	PROC_H_
@@ -14,11 +14,11 @@
 /*
 ** Process control structure
 */
-
 typedef struct
 {
   int		pid;
   int		flags;
+  int		personality;
 }		t_proc;
 
 void		proc_cleanup(t_proc *self);

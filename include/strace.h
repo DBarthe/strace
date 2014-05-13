@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Tue May  6 12:31:19 2014 Barthelemy Delemotte
+** Last update Tue May 13 12:13:47 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
@@ -18,6 +18,7 @@
 # include "defines.h"
 # include "proclist.h"
 # include "options.h"
+# include "registers.h"
 
 typedef struct
 {
@@ -40,9 +41,10 @@ typedef struct
 ** t_tracer "methods" :
 **
 ** -> tracer_set_proc:	set the current working process,
-**			if pid == 0, a new entry is added to the proclist,
-**			if the pid does not exist in the list, proc and proclink
-**			are set to zero but not pid.
+**			if pid == 0, a new entry is added
+**			to the proclist, if the pid does
+**			not exist in the list, proc and
+**			proclink are set to zero but not pid.
 **
 ** -> tracer_clean:	cleanup current working variables
 */
@@ -64,24 +66,38 @@ void		strace_quit(t_tracer *tracer);
 bool		exec_and_trace_program(t_tracer *tracer, t_options *opts);
 bool		attach_process(t_tracer *tracer, t_options *opts);
 bool		wait_for_tracee(t_tracer *tracer);
+void		analyse_current_breakpoint(t_tracer *tracer, int *signal);
+void		resolve_sig_or_group_stop(t_tracer *tracer, int *signal);
+void		syscall_enter_stop(t_tracer *tracer, u_registers *registers);
+void		syscall_exit_stop(t_tracer *tracer, u_registers *registers);
 
+/*
+** To exploit the process status :
+*/
 bool		is_exited(int status);
 bool		is_signaled(int status);
 bool		is_ptrace_stopped(int status);
+int		get_stopping_signal(int status);
 
+/*
+** Funtions to call after having identified the process staus.
+*/
 void		tracee_exited(t_tracer *tracer);
 void		tracee_has_been_signaled(t_tracer *tracer);
 void		tracee_is_ptrace_stopped(t_tracer *tracer);
 void		tracee_is_not_stopped(t_tracer *tracee);
 
 /*
-** print utils :
+** Print utils :
 */
 void		tracer_print_pid(t_tracer *tracer);
 void		tracer_print(t_tracer *tracer, const char *fmt, ...);
 void		tracer_print_raw(t_tracer *tracer, const char *fmt, ...);
 void		tracer_flush_output(t_tracer *tracer);
 
+/*
+** Other print routines: specially for syscalls :
+*/
 void		sc_print_check(t_tracer *tracer);
 void		sc_print_begin(t_tracer *tracer);
 void		sc_print_continue(t_tracer *tracer, const char *signame);
