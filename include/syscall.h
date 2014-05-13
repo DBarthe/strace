@@ -5,14 +5,13 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Tue May 13 12:15:45 2014 Barthelemy Delemotte
-** Last update Tue May 13 22:54:18 2014 Barthelemy Delemotte
+** Last update Wed May 14 00:20:39 2014 Barthelemy Delemotte
 */
 
 #ifndef SYSCALL_H_
 # define SYSCALL_H_
 
 # include "defines.h"
-# include "registers.h"
 
 # if defined(I386)
 #  define MAX_NARGS	5
@@ -21,6 +20,9 @@
 # endif /* I386 || X86_64 */
 
 typedef struct s_sc_ent	t_sc_ent;
+
+# include "registers.h"
+
 typedef void		(*t_sc_print)(const t_sc_ent *sc_ent,
 				      const u_registers *regs);
 
@@ -33,5 +35,17 @@ struct			s_sc_ent
 };
 
 const t_sc_ent		*sc_table_get(int scno, int personality);
+
+/*
+** Print syscall enter/exit
+*/
+void			sc_print_enter_dfl_x86_64(const t_sc_ent *sc_ent,
+						  const u_registers *regs);
+void			sc_print_exit_dfl_x86_64(const t_sc_ent *sc_ent,
+						 const u_registers *regs);
+void			sc_print_enter_dfl_i386(const t_sc_ent *sc_ent,
+						const u_registers *regs);
+void			sc_print_exit_dfl_i386(const t_sc_ent *sc_ent,
+					       const u_registers *regs);
 
 #endif /* !SYSCALL_H_ */

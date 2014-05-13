@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Tue May 13 12:13:47 2014 Barthelemy Delemotte
+** Last update Wed May 14 00:21:17 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
@@ -92,8 +92,8 @@ void		tracee_is_not_stopped(t_tracer *tracee);
 */
 void		tracer_print_pid(t_tracer *tracer);
 void		tracer_print(t_tracer *tracer, const char *fmt, ...);
-void		tracer_print_raw(t_tracer *tracer, const char *fmt, ...);
-void		tracer_flush_output(t_tracer *tracer);
+void		tracer_print_raw(const char *fmt, ...);
+void		tracer_flush_output(void);
 
 /*
 ** Other print routines: specially for syscalls :

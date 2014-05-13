@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Tue May  6 11:42:46 2014 Barthelemy Delemotte
-** Last update Tue May  6 12:21:43 2014 Barthelemy Delemotte
+** Last update Wed May 14 00:09:09 2014 Barthelemy Delemotte
 */
 
 #include <stdarg.h>
@@ -32,18 +32,16 @@ void		tracer_print(t_tracer *tracer, const char *fmt, ...)
   va_end(ap);
 }
 
-void		tracer_print_raw(t_tracer *tracer, const char *fmt, ...)
+void		tracer_print_raw(const char *fmt, ...)
 {
   va_list	ap;
 
-  (void)tracer;
   va_start(ap, fmt);
   vfprintf(stderr, fmt, ap);
   va_end(ap);
 }
 
-void		tracer_flush_output(t_tracer *tracer)
+void		tracer_flush_output(void)
 {
-  (void)tracer;
   fflush(stderr);
 }

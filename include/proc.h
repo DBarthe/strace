@@ -5,23 +5,28 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 18:55:38 2014 Barthelemy Delemotte
-** Last update Mon May 12 18:10:13 2014 Barthelemy Delemotte
+** Last update Tue May 13 23:13:02 2014 Barthelemy Delemotte
 */
 
 #ifndef	PROC_H_
 # define PROC_H_
+
+typedef struct s_sc_ent		t_sc_ent;
 
 /*
 ** Process control structure
 */
 typedef struct
 {
-  int		pid;
-  int		flags;
-  int		personality;
-}		t_proc;
+  int				pid;
+  int				flags;
+  int				personality;
+  const t_sc_ent		*sc_ent;
+}				t_proc;
 
-void		proc_cleanup(t_proc *self);
+# include "syscall.h"
+
+void				proc_cleanup(t_proc *self);
 
 /*
 ** .flags values and maccros:

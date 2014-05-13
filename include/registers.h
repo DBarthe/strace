@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May 12 15:48:11 2014 Barthelemy Delemotte
-** Last update Tue May 13 11:55:52 2014 Barthelemy Delemotte
+** Last update Tue May 13 23:10:04 2014 Barthelemy Delemotte
 */
 
 #ifndef REGISTERS_H_
@@ -14,7 +14,6 @@
 # include <sys/user.h>
 # include <sys/types.h>
 
-# include "proc.h"
 # include "defines.h"
 
 /*
@@ -48,6 +47,8 @@ typedef union
   struct user_regs_struct	x86_64_r;
   t_i386_user_regs_struct	i386_r;
 }				u_registers;
+
+# include "proc.h"
 
 bool				fetch_registers(t_proc *proc,
 						u_registers *regsbuf);
