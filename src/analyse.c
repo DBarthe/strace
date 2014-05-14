@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May 12 14:37:35 2014 Barthelemy Delemotte
-** Last update Tue May 13 12:12:42 2014 Barthelemy Delemotte
+** Last update Wed May 14 20:46:11 2014 Barthelemy Delemotte
 */
 
 #include <sys/ptrace.h>
@@ -17,15 +17,21 @@
 void		resolve_sig_or_group_stop(t_tracer *tracer, int *signal)
 {
   siginfo_t	si;
+  const char	*signame;
 
+  signame = get_signal_name(*signal);
+  if (!signame)
+    {
+      signame = "?";
+    }
   if (ptrace(PTRACE_GETSIGINFO, tracer->current.proc->pid, 0, &si) < 0)
     {
-      tracer_print(tracer, "--- stopped by %d ---\n", *signal);
+      tracer_print(tracer, "--- stopped by %s ---\n", signame);
       *signal = 0;
     }
   else
     {
-      tracer_print(tracer, "--- %d ---\n", *signal);
+      tracer_print(tracer, "--- %s ---\n", signame);
     }
 }
 

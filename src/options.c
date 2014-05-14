@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 20:13:55 2014 Barthelemy Delemotte
-** Last update Mon May  5 21:51:13 2014 Barthelemy Delemotte
+** Last update Wed May 14 20:50:16 2014 Barthelemy Delemotte
 */
 
 #include <unistd.h>
@@ -16,7 +16,7 @@
 
 static bool	usage(const char *progname)
 {
-  fprintf(stderr, "usage: %s {-p pid | command [arg ...]}\n", progname);
+  fprintf(stderr, "usage: %s (-p pid | command [arg ...])\n", progname);
   return (false);
 }
 

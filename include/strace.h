@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Wed May 14 18:23:58 2014 Barthelemy Delemotte
+** Last update Wed May 14 22:00:14 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_
@@ -102,5 +102,15 @@ void		sc_print_check(t_tracer *tracer);
 void		sc_print_begin(t_tracer *tracer);
 void		sc_print_continue(t_tracer *tracer, const char *signame);
 void		sc_print_end(t_tracer *tracer);
+
+/*
+** signals :
+*/
+const char	*get_signal_name(int signum);
+
+/*
+** exit :
+*/
+void		set_exit_hook(t_tracer *tracer);
 
 #endif /* !STRACE_H_ */

@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Wed May 14 00:02:02 2014 Barthelemy Delemotte
-** Last update Wed May 14 18:37:38 2014 Barthelemy Delemotte
+** Last update Wed May 14 20:38:10 2014 Barthelemy Delemotte
 */
 
 #include <string.h>
@@ -27,6 +27,7 @@ void		sc_print_exit_dfl_x86_64(const t_sc_ent *sc_ent,
 					 const u_registers *regs)
 {
   signed long	ret;
+  const char	*errno_name;
 
   (void)sc_ent;
   ret = (signed long)regs->x86_64_r.rax;
@@ -36,7 +37,9 @@ void		sc_print_exit_dfl_x86_64(const t_sc_ent *sc_ent,
     }
   else
     {
-      tracer_print_raw("-1 %ld (%s)\n", -ret, strerror(-ret));
+      errno_name = get_errno_name(-ret);
+      tracer_print_raw("-1 %s (%s)\n", errno_name ? errno_name : "?",
+		       strerror(-ret));
     }
 }
 #endif /* X86_64 */
@@ -55,6 +58,7 @@ void		sc_print_exit_dfl_i386(const t_sc_ent *sc_ent,
 				       const u_registers *regs)
 {
   signed int	ret;
+  const char	*errno_name;
 
   (void)sc_ent;
   ret = (signed int)regs->i386_r.eax;
@@ -64,7 +68,9 @@ void		sc_print_exit_dfl_i386(const t_sc_ent *sc_ent,
     }
   else
     {
-      tracer_print_raw("-1 %d (%s)\n", -ret, strerror(-ret));
+      errno_name = get_errno_name(-ret);
+      tracer_print_raw("-1 %s (%s)\n", errno_name ? errno_name : "?",
+		       strerror(-ret));
     }
 }
 #endif /* X86_64 || I386 */

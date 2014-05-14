@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:31:00 2014 Barthelemy Delemotte
-** Last update Mon May  5 22:53:57 2014 Barthelemy Delemotte
+** Last update Wed May 14 21:56:24 2014 Barthelemy Delemotte
 */
 
 #include <stdlib.h>
@@ -56,6 +56,7 @@ void		proclist_rm(t_proclist *self, t_proclink *link)
   if (link->next)
     link->next->prev = link->prev;
   self->length -= 1;
+  proc_dtor(&link->proc);
   free(link);
 }
 

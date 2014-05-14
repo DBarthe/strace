@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 18:55:38 2014 Barthelemy Delemotte
-** Last update Tue May 13 23:13:02 2014 Barthelemy Delemotte
+** Last update Wed May 14 21:54:03 2014 Barthelemy Delemotte
 */
 
 #ifndef	PROC_H_
@@ -27,6 +27,7 @@ typedef struct
 # include "syscall.h"
 
 void				proc_cleanup(t_proc *self);
+void				proc_dtor(t_proc *self);
 
 /*
 ** .flags values and maccros:

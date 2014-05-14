@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:19:53 2014 Barthelemy Delemotte
-** Last update Mon May  5 21:11:14 2014 Barthelemy Delemotte
+** Last update Wed May 14 22:14:24 2014 Barthelemy Delemotte
 */
 
 #include <stdlib.h>
@@ -28,8 +28,11 @@ int		main(int ac, char **av)
   if (success)
     {
       success = strace_init(&tracer, &options);
+      set_exit_hook(&tracer);
       if (success)
-	success = strace_loop(&tracer);
+	{
+	  success = strace_loop(&tracer);
+	}
       strace_quit(&tracer);
     }
   return (success ? EXIT_SUCCESS : EXIT_FAILURE);

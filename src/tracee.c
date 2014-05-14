@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Tue May  6 11:36:46 2014 Barthelemy Delemotte
-** Last update Tue May 13 11:21:36 2014 Barthelemy Delemotte
+** Last update Wed May 14 22:28:16 2014 Barthelemy Delemotte
 */
 
 #include <sys/types.h>
@@ -30,8 +30,14 @@ void		tracee_exited(t_tracer *tracer)
 
 void		tracee_has_been_signaled(t_tracer *tracer)
 {
-  tracer_print(tracer, "+++ killed by %d +++\n",
-	       WTERMSIG(tracer->current.status));
+  const char	*signame;
+
+  signame = get_signal_name(WTERMSIG(tracer->current.status));
+  if (!signame)
+    {
+      signame = "?";
+    }
+  tracer_print(tracer, "+++ killed by %s +++\n", signame);
   remove_current_tracee(tracer);
 }
 

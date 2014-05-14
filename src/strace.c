@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 20:11:20 2014 Barthelemy Delemotte
-** Last update Wed May 14 00:11:47 2014 Barthelemy Delemotte
+** Last update Wed May 14 22:20:48 2014 Barthelemy Delemotte
 */
 
 #include "strace.h"
@@ -18,11 +18,7 @@ bool		strace_init(t_tracer *tracer, t_options *opts)
   tracer_ctor(tracer);
   if (opts->type == PROG_NAME)
     {
-      tracer_print_raw("Executing command '%s' ... ",
-		       opts->prog.progname);
-      tracer_flush_output();
       ret = exec_and_trace_program(tracer, opts);
-      tracer_print_raw("[OK]\n");
     }
   else
     {
@@ -60,7 +56,6 @@ bool		strace_loop(t_tracer *tracer)
 	continue;
       if (tracer->current.proc == NULL)
 	{
-	  /* TODO: unknown pid seen */
 	}
       else
 	{
