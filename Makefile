@@ -4,10 +4,12 @@ m32 ?= 0
 
 CC ?= gcc
 
-INCPATH = ./include
+INCPATHS = ./include ./generated
 SRCPATH = ./src
 
-CFLAGS = -I $(INCPATH) -Wall -Wextra
+INCLUDES = $(foreach dir,$(INCPATHS),-I $(dir))
+
+CFLAGS = -Wall -Wextra $(INCLUDES)
 DBGFLAGS = -ggdb3 -DDEBUG
 NDBGFLAGS = -DNDEBUG
 OFLAGS = -O3
