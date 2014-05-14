@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:06:52 2014 Barthelemy Delemotte
-** Last update Wed May 14 00:21:17 2014 Barthelemy Delemotte
+** Last update Wed May 14 18:23:58 2014 Barthelemy Delemotte
 */
 
 #ifndef STRACE_H_

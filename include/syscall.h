@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Tue May 13 12:15:45 2014 Barthelemy Delemotte
-** Last update Wed May 14 00:20:39 2014 Barthelemy Delemotte
+** Last update Wed May 14 18:27:39 2014 Barthelemy Delemotte
 */
 
 #ifndef SYSCALL_H_
@@ -47,5 +47,9 @@ void			sc_print_enter_dfl_i386(const t_sc_ent *sc_ent,
 						const u_registers *regs);
 void			sc_print_exit_dfl_i386(const t_sc_ent *sc_ent,
 					       const u_registers *regs);
+void			print_args_hex_x86_64(unsigned int nargs,
+					      const u_registers *regs);
+void			print_args_hex_i386(unsigned int nargs,
+					    const u_registers *regs);
 
 #endif /* !SYSCALL_H_ */
