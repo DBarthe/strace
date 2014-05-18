@@ -5,12 +5,13 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 21:47:16 2014 Barthelemy Delemotte
-** Last update Wed May 14 22:15:55 2014 Barthelemy Delemotte
+** Last update Sun May 18 11:08:31 2014 Barthelemy Delemotte
 */
 
 #include <sys/ptrace.h>
 #include <errno.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "strace.h"
 

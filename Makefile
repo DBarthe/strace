@@ -1,5 +1,5 @@
 
-DEBUG ?= 1
+DEBUG ?= 0
 m32 ?= 0
 
 CC ?= gcc

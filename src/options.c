@@ -5,11 +5,12 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 20:13:55 2014 Barthelemy Delemotte
-** Last update Wed May 14 20:50:16 2014 Barthelemy Delemotte
+** Last update Sun May 18 11:08:45 2014 Barthelemy Delemotte
 */
 
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "options.h"
@@ -35,7 +36,7 @@ bool		options_parse(t_options *self, int ac, char **av)
   int		opt;
 
   self->type = PROG_NAME;
-  while ((opt = getopt(ac, av, "p:")) != -1)
+  while ((opt = getopt(ac, av, "+p:")) != -1)
     {
       if (opt == 'p')
 	{
@@ -43,7 +44,7 @@ bool		options_parse(t_options *self, int ac, char **av)
 	  self->proc.pid = atoi(optarg);
 	}
       else
-	return (usage(av[0]));
+      	return (usage(av[0]));
     }
   if (self->type == PROG_NAME)
     {

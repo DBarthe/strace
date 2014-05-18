@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May  5 19:02:57 2014 Barthelemy Delemotte
-** Last update Tue May 13 12:04:15 2014 Barthelemy Delemotte
+** Last update Sun May 18 11:09:39 2014 Barthelemy Delemotte
 */
 
 #ifndef DEFINES_H_
@@ -37,6 +37,7 @@
 # else
 #  define IFDEBUG(inst)
 #  define IFNDEBUG(inst) inst
+#  define DEBUG_PRINT(s)
 # endif /* DEBUG */
 
 # define DEFAULT_PERSONALITY	0

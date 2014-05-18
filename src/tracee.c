@@ -5,7 +5,7 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Tue May  6 11:36:46 2014 Barthelemy Delemotte
-** Last update Wed May 14 22:28:16 2014 Barthelemy Delemotte
+** Last update Sun May 18 11:09:16 2014 Barthelemy Delemotte
 */
 
 #include <sys/types.h>
@@ -13,6 +13,7 @@
 #include <sys/ptrace.h>
 
 #include "strace.h"
+#include "defines.h"
 
 static void	remove_current_tracee(t_tracer *tracer)
 {

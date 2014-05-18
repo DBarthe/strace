@@ -5,12 +5,13 @@
 ** Login   <delemo_b@epitech.net>
 **
 ** Started on Mon May 12 14:37:35 2014 Barthelemy Delemotte
-** Last update Wed May 14 20:46:11 2014 Barthelemy Delemotte
+** Last update Sun May 18 11:11:53 2014 Barthelemy Delemotte
 */
 
 #include <sys/ptrace.h>
 #include <sys/wait.h>
 
+#include "defines.h"
 #include "strace.h"
 #include "registers.h"
 
