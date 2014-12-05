@@ -1,9 +1,9 @@
 strace
 ======
 
-This is a lighter version of the well-known syscall tracer.
+This is a lighweight version of the well-known syscall tracer.
 
-It runs under Linux at least with i386 and x86_64 processors.
+It runs under Linux on i386 and x86_64.
 
 Compilation
 ===========
